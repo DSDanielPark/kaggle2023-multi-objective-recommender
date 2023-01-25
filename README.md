@@ -5,10 +5,6 @@
 - Evaluation:  Recall@20 for each action type, and the three recall values are weight-averaged <br>
 
 
-$$ score = 0.10 \\cdot R\\_{clicks} \u002B 0.30 \\cdot R\\_{carts} \u002B 0.60 \\cdot R\\_{orders}\n
-
-$$ where \\\\( R \\\\)
-
 is defined as
 
 $$\nR\\_{type} = \\frac{\\sum\\_{i}^{N} | \\\\{ \\text{predicted aids} \\\\}\\_{i, type} \\cap \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | }{\\sum\\_{i}^{N} \\min{\\( 20, | \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | \\)}}\n$$\n\nand \\\\( N \\\\) is the total number of sessions in the test set, and \\\\( \\text{predicted aids} \\\\) are the predictions for each session-type (e.g., each row in the submission file) _truncated after the first 20 predictions_.\n\n\nFor each 
