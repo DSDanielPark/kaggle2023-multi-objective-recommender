@@ -20,6 +20,7 @@ Code will be open after data de-identification and refactoring.
 - **Data Description:** <br>
   - 구체적인 태스크는 aid 세션이 잘린 뒤에 나올 다음 클릭과 및 장바구니에 추가될 나머지 항목을 예측하는 것이며, 각 세션별로 최대 20개의 값을 예측할 수 있음.
 
+```
 - train.jsonl - train용 전체 세션 데이터
   - session- 고유한 세션 ID
   - events- 세션에서 발생한 이벤트의 시계열 데이터
@@ -27,6 +28,7 @@ Code will be open after data de-identification and refactoring.
     - ts-  이벤트 타임스탬프
     - type- 이벤트 유형, 즉 제품이 클릭되었는지, 사용자의 장바구니에 추가되었는지 또는 세션동안 주문되었는지 여부
 - test.jsonl - 세션의 잘린부분을 포함하는 테스트 데이터
+```
 
 - **EDA:**
 <br> you can see simple data description in official [github.](https://github.com/otto-de/recsys-dataset)
