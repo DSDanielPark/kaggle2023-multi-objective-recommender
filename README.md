@@ -29,8 +29,7 @@ Code will be open after data de-identification and refactoring.
 - test.jsonl - 세션의 잘린부분을 포함하는 테스트 데이터
 ```
 
-- 구체적인 태스크는 aid 세션이 잘린 뒤에 나올 다음 클릭과 및 장바구니에 추가될 나머지 항목을 예측하는 것이며,
-- 각 세션별로 최대 20개의 값을 예측할 수 있음
+- 구체적인 태스크는 aid 세션이 잘린 뒤에 나올 다음 클릭과 및 장바구니에 추가될 나머지 항목을 예측하는 것이며, 각 세션별로 최대 20개의 값을 예측할 수 있음
 
 - **EDA:**
 <br> EDA will be conducted in official dataset [github](https://github.com/otto-de/recsys-dataset)
