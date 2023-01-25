@@ -5,7 +5,14 @@
 - Evaluation:  Recall@20 for each action type, and the three recall values are weight-averaged <br>
 
 
-$$\nscore = 0.10 \\cdot R\\_{clicks} \u002B 0.30 \\cdot R\\_{carts} \u002B 0.60 \\cdot R\\_{orders}\n$$\n\nwhere \\\\( R \\\\) is defined as\n\n$$\nR\\_{type} = \\frac{\\sum\\_{i}^{N} | \\\\{ \\text{predicted aids} \\\\}\\_{i, type} \\cap \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | }{\\sum\\_{i}^{N} \\min{\\( 20, | \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | \\)}}\n$$\n\nand \\\\( N \\\\) is the total number of sessions in the test set, and \\\\( \\text{predicted aids} \\\\) are the predictions for each session-type (e.g., each row in the submission file) _truncated after the first 20 predictions_.\n\n\nFor each \u0060session\u0060 in the test data, your task it to predict the \u0060aid\u0060 values for each \u0060type\u0060 that occur after the last timestamp \u0060ts\u0060 the test session.
+$$ score = 0.10 \\cdot R\\_{clicks} \u002B 0.30 \\cdot R\\_{carts} \u002B 0.60 \\cdot R\\_{orders}\n
+
+$$ where \\\\( R \\\\)
+
+is defined as
+
+$$\nR\\_{type} = \\frac{\\sum\\_{i}^{N} | \\\\{ \\text{predicted aids} \\\\}\\_{i, type} \\cap \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | }{\\sum\\_{i}^{N} \\min{\\( 20, | \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | \\)}}\n$$\n\nand \\\\( N \\\\) is the total number of sessions in the test set, and \\\\( \\text{predicted aids} \\\\) are the predictions for each session-type (e.g., each row in the submission file) _truncated after the first 20 predictions_.\n\n\nFor each 
+in the test data, your task it to predict the values for each that occur after the last timestamp the test session.
 
 - TASK Duration: Jan 25,2023 - Feb 01,2023 (6days) <br>
 - Author: Daniel Park in South Korea https://github.com/DSDanielPark <br>
