@@ -3,13 +3,7 @@
 - `APACHE MXNET` 전자 상거래 로그 기반(클릭, 장바구니 추가) 주문 예측
 - Dataset: 독일 전자상거래 OTTO data set <br>
 - Evaluation:  Recall@20 for each action type, and the three recall values are weight-averaged <br>
-
-
-is defined as
-
-$$\nR\\_{type} = \\frac{\\sum\\_{i}^{N} | \\\\{ \\text{predicted aids} \\\\}\\_{i, type} \\cap \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | }{\\sum\\_{i}^{N} \\min{\\( 20, | \\\\{ \\text{ground truth aids} \\\\}\\_{i, type} | \\)}}\n$$\n\nand \\\\( N \\\\) is the total number of sessions in the test set, and \\\\( \\text{predicted aids} \\\\) are the predictions for each session-type (e.g., each row in the submission file) _truncated after the first 20 predictions_.\n\n\nFor each 
-in the test data, your task it to predict the values for each that occur after the last timestamp the test session.
-
+`Score` = 0.10 * `Recall of clicks` + 0.30 * `Recall of carts` + 0.60 * `Recall of Order`
 - TASK Duration: Jan 25,2023 - Feb 01,2023 (6days) <br>
 - Author: Daniel Park in South Korea https://github.com/DSDanielPark <br>
 <br>
