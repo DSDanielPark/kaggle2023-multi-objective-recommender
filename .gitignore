@@ -6,6 +6,7 @@ main.py
 /result
 /model
 /dependencies
+/documents
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
