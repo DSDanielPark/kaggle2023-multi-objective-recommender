@@ -31,7 +31,7 @@ Code will be open after data de-identification and refactoring.
 ```
 
 - **EDA:**
-<br> You can see simple data description in official [github.](https://github.com/otto-de/recsys-dataset)
+<br> You can see simple data description in official [OTTO data set github.](https://github.com/otto-de/recsys-dataset)
 <br>
 
 <br>
