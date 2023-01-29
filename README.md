@@ -46,6 +46,6 @@ Code will be open after data de-identification and refactoring.
 |:---:|:---|
 |23.01.26|- 데이터 셋업 및 태스크 확인 <br> - Multi Object에 대한 레퍼런스 확인|
 |23.01.27|- 간단한 ML 모델 학습 진행 <br> - 대용량 데이터 전처리 시작|
-|23.01.29|- 간단한 ML 모델 결과 확인|
+|23.01.29|- 휴식, 간단한 ML 모델 결과 확인|
 
 <br><br>
