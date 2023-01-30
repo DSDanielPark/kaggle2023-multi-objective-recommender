@@ -10,7 +10,7 @@ Code will be open after data de-identification and refactoring.
 <br>
 <br>
 
-# References Study
+# References
 ### About Co-visitation Metric
 ### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
 <!--![alt text](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg?raw=true)-->
@@ -47,7 +47,7 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 |4| cuDF - GPU DataFrames | [cuDF](https://github.com/rapidsai/cudf) |
 |5| Stellar Graph Demos| [StellarGraph demos](https://stellargraph.readthedocs.io/en/stable/demos/index.html)|
 |6| Conda Colab | [Conda Colab](https://github.com/conda-incubator/condacolab)
-
+|7| NetworkX | [Documentation](https://networkx.org/documentation/stable/index.html)
 
 <br>
 <br>

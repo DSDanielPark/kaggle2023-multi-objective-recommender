@@ -81,7 +81,7 @@ Code will be open after data de-identification and refactoring.
 <br><br>
 
 
-# References Study
+# References
 - You can see whole reference study at [study.md](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/references/study.md)
 ### About Co-visitation Metric
 ### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
