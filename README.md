@@ -67,9 +67,7 @@ Code will be open after data de-identification and refactoring.
 ...	  ...	  ...	    ...	          ...
 ```
 
-<br><br>
-
-
+<br>
 
 ## References
 ### About Co-visitation Metric
