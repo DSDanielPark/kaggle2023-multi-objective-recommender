@@ -36,6 +36,45 @@ Code will be open after data de-identification and refactoring.
 <br> You can see simple data description in official [OTTO data set github.](https://github.com/otto-de/recsys-dataset)
 <br>
 
+- **Data Sample**:
+  - aid: product node
+  - ts: time stamping
+  - type: action type
+
+`Raw data for one session`
+```
+[{'aid': 424964, 'ts': 1659304800025, 'type': 'carts'},
+ {'aid': 1492293, 'ts': 1659304852871, 'type': 'clicks'},
+ {'aid': 1492293, 'ts': 1659304863627, 'type': 'carts'},
+ {'aid': 910862, 'ts': 1659304891923, 'type': 'clicks'},
+ {'aid': 910862, 'ts': 1659304900209, 'type': 'carts'},
+...
+ {'aid': 1464360, 'ts': 1661447432716, 'type': 'clicks'},
+ {'aid': 207905, 'ts': 1661686200666, 'type': 'clicks'},
+ {'aid': 1628317, 'ts': 1661686382213, 'type': 'clicks'},
+ {'aid': 376932, 'ts': 1661705869789, 'type': 'clicks'},
+ {'aid': 497868, 'ts': 1661714854992, 'type': 'clicks'}]
+```
+
+`Other view`
+```
+	session	  aid	      ts	     type
+0 	  0	    1517085	1659304800025	clicks
+1 	  0	    1563459	1659304904511	clicks
+2	  0	    1309446	1659367439426	clicks
+3	  0	    16246	1659367719997	clicks
+4	  0	    1781822	1659367871344	clicks
+...	  ...	  ...	    ...	          ...
+10676	99	369914	1661390037098	clicks
+10677	99	759787	1661713071231	clicks
+10678	99	759787	1661713144577	clicks
+10679	99	1400630	1661713177535	clicks
+10680	99	1358447	1661713244707	clicks
+```
+
+
+
+
 <br>
 
 
