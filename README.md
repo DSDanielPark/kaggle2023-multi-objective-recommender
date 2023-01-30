@@ -65,11 +65,6 @@ Code will be open after data de-identification and refactoring.
 3	  0	    16246	1659367719997	clicks
 4	  0	    1781822	1659367871344	clicks
 ...	  ...	  ...	    ...	          ...
-10676	99	369914	1661390037098	clicks
-10677	99	759787	1661713071231	clicks
-10678	99	759787	1661713144577	clicks
-10679	99	1400630	1661713177535	clicks
-10680	99	1358447	1661713244707	clicks
 ```
 
 <br><br>
