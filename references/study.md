@@ -101,15 +101,32 @@ Just remember that the RAPIDS-Colab install script will check if you have a RAPI
 
 ## 2. jsonl to parquet function
 ```python
+#pip install pyarrow
+#pip install fastparquet
 import pandas as pd
-def jsonl_to_parquet(input_jsonl_path:str, save_parquet_path: str) -> pd.core.frame.DataFrame:
+import pandas as pd
+def jsonl_to_parquet(input_jsonl_fpath:str, save_parquet_dpath: str, chunk_size: int) -> pd.core.frame.DataFrame:
     '''
-    USAGE_EXAMPLE
-
-    jsonl_to_parquet('../data/train.jsonl', '../data/train.parquet')
+    jsonl_to_parquet('../data/otto-recommender-system\\test.jsonl', '.')                # for small size jsonl file
+    jsonl_to_parquet('../data/otto-recommender-system\\train.jsonl', '.', 100000)       # for large size jsonl file
     '''
-    jsonObj = pd.read_json(path_or_buf=input_jsonl_path, lines=True)
-    df = pd.DataFrame(jsonObj)
-    df.to_parquet(save_parquet_path)
-    return jsonObj
+    if chunk_size == None:
+        chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True)
+        df = pd.DataFrame(chunks)
+        try:
+            df.to_parquet(f'{save_parquet_dpath}/result.parquet')
+        except Exception as e:
+            print(f'Error occurs: {e}')
+    elif chunk_size != None:
+        assert type(chunk_size) == int, "type of chunk_size should be integer"
+        chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True, chunksize=chunk_size)
+        for i, c in enumerate(chunks):
+            temp_df = pd.DataFrame(c)
+            try:
+                temp_df.to_parquet(f'{save_parquet_dpath}/result{i}.parquet') 
+            except Exception as e:
+                print(f'Error occurs: {e}')
+        
+    
+        
 ```
