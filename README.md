@@ -104,6 +104,11 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 |5| Stellar Graph Demos| [StellarGraph demos](https://stellargraph.readthedocs.io/en/stable/demos/index.html)|
 |6| Conda Colab | [Conda Colab](https://github.com/conda-incubator/condacolab)
 |7| NetworkX | [Documentation](https://networkx.org/documentation/stable/index.html)
+|8| Hidden Markov Models | [stanford.edu](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://web.stanford.edu/~jurafsky/slp3/A.pdf)
+|9| Implementation of Hidden Markov Models | [scikit-learn](https://scikit-learn.sourceforge.net/stable/modules/hmm.html)
+|10| hmm learn | [github](https://github.com/hmmlearn/hmmlearn)
+
+
 
 
 <br>
