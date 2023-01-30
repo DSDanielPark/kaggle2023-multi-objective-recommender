@@ -9,7 +9,7 @@
 Code will be open after data de-identification and refactoring.
 <br>
 
-[](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg)
+
 
 ## Remark
 - Quick Competition challenges.
