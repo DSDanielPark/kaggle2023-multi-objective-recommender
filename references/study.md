@@ -111,6 +111,11 @@ We will use RAPIDS version 22.12.0
 ```
 
 
+#### 1.4 cudf with WSL2 (windows)
+- [RAPIDS.ai documentation](https://rapids.ai/wsl2.html)
+- [NVIDIA documentation](https://developer.nvidia.com/blog/run-rapids-on-microsoft-windows-10-using-wsl-2-the-windows-subsystem-for-linux/)
+
+
 <br><br>
 
 ### 2. jsonl to parquet function
