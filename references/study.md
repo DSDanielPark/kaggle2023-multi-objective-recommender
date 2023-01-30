@@ -105,11 +105,11 @@ import pandas as pd
 def jsonl_to_parquet(input_jsonl_path:str, save_parquet_path: str) -> pd.core.frame.DataFrame:
     '''
     USAGE_EXAMPLE
-    
+
     jsonl_to_parquet('../data/train.jsonl', '../data/train.parquet')
     '''
-  jsonObj = pd.read_json(path_or_buf=input_jsonl_path, lines=True)
-  df = pd.DataFrame(jsonObj)
-  df.to_parquet(save_parquet_path)
-  return jsonObj
+    jsonObj = pd.read_json(path_or_buf=input_jsonl_path, lines=True)
+    df = pd.DataFrame(jsonObj)
+    df.to_parquet(save_parquet_path)
+    return jsonObj
 ```
