@@ -67,16 +67,16 @@ cudf in Google Colab.
 ```
 
 ### 1.1 Use conda in GoogleColab
-```
-    !nvidia-smi                          # check type of runtime
-    !conda --version                     # check if you can use conda in kernel
+```python
+>>> !nvidia-smi                          # check type of runtime
+>>> !conda --version                     # check if you can use conda in kernel
 /bin/bash: conda: command not found
 
-    !pip install -q condacolab           # install conda colab
-    import condacolab
-    condacolab.install()
-    import condacolab
-    condacolab.check()
+>>> !pip install -q condacolab           # install conda colab
+>>> import condacolab
+>>> condacolab.install()
+>>> import condacolab
+>>> condacolab.check()
 ✨🍰✨ Everything looks OK!
 
 ```
@@ -96,3 +96,20 @@ ModuleNotFoundError: No module named 'cudf'
 => There wasn't a RAPIDS compatible GPU connected to the Colab instance.
 
 Just remember that the RAPIDS-Colab install script will check if you have a RAPIDS compatible GPU and let you know within the first 15 seconds. Instead of erroring out, it will print out the issue and resolution steps, while NOT installing RAPIDS, as to not waste your time on something that won't work.
+
+<br><br>
+
+## 2. jsonl to parquet function
+```python
+import pandas as pd
+def jsonl_to_parquet(input_jsonl_path:str, save_parquet_path: str) -> pd.core.frame.DataFrame:
+    '''
+    USAGE_EXAMPLE
+    
+    jsonl_to_parquet('../data/train.jsonl', '../data/train.parquet')
+    '''
+  jsonObj = pd.read_json(path_or_buf=input_jsonl_path, lines=True)
+  df = pd.DataFrame(jsonObj)
+  df.to_parquet(save_parquet_path)
+  return jsonObj
+```
