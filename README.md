@@ -22,26 +22,29 @@ Code will be open after data de-identification and refactoring.
 - **Data Description:** <br>
   - 구체적인 태스크는 aid 세션이 잘린 뒤에 나올 다음 클릭과 및 장바구니에 추가될 나머지 항목을 예측하는 것이며, 각 액션 타입별로 최대 20개의 상품을 예측할 수 있음.
 
-```
-- train.jsonl - 전체 시퀀스의 train set (10.5GB)
-  - session- 고유한 세션 ID
-  - events- 세션에서 발생한 이벤트의 시계열 데이터
-    - aid- 관련 이벤트 품목 ID(제품 코드)
-    - ts-  이벤트 타임스탬프
-    - type- 3가지 이벤트 유형(click, add to carts, order)
-- test.jsonl - 시퀀스 일부가 잘린 test set (383MB)
-```
+    ```
+    - train.jsonl - 전체 시퀀스의 train set (10.5GB)
+    - session- 고유한 세션 ID
+    - events- 세션에서 발생한 이벤트의 시계열 데이터
+        - aid- 관련 이벤트 품목 ID(제품 코드)
+        - ts-  이벤트 타임스탬프
+        - type- 3가지 이벤트 유형(click, add to carts, order)
+    - test.jsonl - 시퀀스 일부가 잘린 test set (383MB)
+    ```
 
 - **EDA:**
 <br> You can see simple data description in official [OTTO data set github.](https://github.com/otto-de/recsys-dataset)
 <br>
 
 - **Data Sample**:
-  - aid: product node
-  - ts: time stamping
-  - type: action type
+  - `aid`: product node
+  - `ts:` time stamping
+  - `type:` action type
+
+<br>
 
 `Raw data for one session`
+
 ```
 [{'aid': 424964, 'ts': 1659304800025, 'type': 'carts'},
  {'aid': 1492293, 'ts': 1659304852871, 'type': 'clicks'},
@@ -55,6 +58,7 @@ Code will be open after data de-identification and refactoring.
  {'aid': 376932, 'ts': 1661705869789, 'type': 'clicks'},
  {'aid': 497868, 'ts': 1661714854992, 'type': 'clicks'}]
 ```
+
 
 `Other view`
 ```
@@ -75,6 +79,7 @@ Code will be open after data de-identification and refactoring.
 <!--![alt text](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg?raw=true)-->
 *Z. Yang, Q. Sun, Y. Zhang, L. Zhu and W. Ji, "Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems," in IEEE Transactions on Information Forensics and Security, vol. 15, pp. 2766-2781, 2020, doi: 10.1109/TIFS.2020.2977023.*
 <br>
+<br>
 
 #### [2] Co-visitation network in tourism-driven peri-urban area based on social media analytics: A case study in Shenzhen, China
 *Yao Sun, Yiwen Shao, Edwin H.W. Chan,
@@ -85,7 +90,6 @@ Volume 204,
 103934,
 ISSN 0169-2046,
 https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
-
 
 
 
@@ -109,8 +113,6 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 |10| hmm learn | [github](https://github.com/hmmlearn/hmmlearn)
 
 
-
-
 <br>
 
 ## Tips [Optional]
@@ -121,113 +123,113 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 cudf in Google Colab.
 - Check rapidsai-community example on [here.](https://github.com/rapidsai-community/showcase/blob/main/getting_started_tutorials/10min_to_cudf_colab.ipynb?nvid=nv-int-tblg-386840-vt27#cid=av02_nv-int-tblg_en-us)
 
-```
-!pip install cudf-cu11 --extra-index-url=https://pypi.ngc.nvidia.com
-```
+    ```
+    !pip install cudf-cu11 --extra-index-url=https://pypi.ngc.nvidia.com
+    ```
 
-### 1.1 Use conda in GoogleColab
-```python
->>> !nvidia-smi                          # check type of runtime
->>> !conda --version                     # check if you can use conda in kernel
-/bin/bash: conda: command not found
+    ### 1.1 Use conda in GoogleColab
+    ```python
+    >>> !nvidia-smi                          # check type of runtime
+    >>> !conda --version                     # check if you can use conda in kernel
+    /bin/bash: conda: command not found
 
->>> !pip install -q condacolab           # install conda colab
->>> import condacolab
->>> condacolab.install()
->>> condacolab.check()
-✨🍰✨ Everything looks OK!
+    >>> !pip install -q condacolab           # install conda colab
+    >>> import condacolab
+    >>> condacolab.install()
+    >>> condacolab.check()
+    ✨🍰✨ Everything looks OK!
 
-```
+    ```
 
-#### Install cudf
+    #### Install cudf
 
-```
-!conda install -c rapidsai -c conda-forge -c nvidia \
-    cudf=22.10 python=3.9 cudatoolkit=11.5
-```
+    ```
+    !conda install -c rapidsai -c conda-forge -c nvidia \
+        cudf=22.10 python=3.9 cudatoolkit=11.5
+    ```
 
-#### Inspite of sucessful installation, you may can see error message in importing cudf library. Change type of runtime until you can find some server that can have RAPIDS compatible GPU. 
+    #### Inspite of sucessful installation, you may can see error message in importing cudf library. Change type of runtime until you can find some server that can have RAPIDS compatible GPU. 
 
-```
-ModuleNotFoundError: No module named 'cudf'
-```
-=> There wasn't a RAPIDS compatible GPU connected to the Colab instance.
+    ```
+    ModuleNotFoundError: No module named 'cudf'
+    ```
+    => There wasn't a RAPIDS compatible GPU connected to the Colab instance.
 
-Just remember that the RAPIDS-Colab install script will check if you have a RAPIDS compatible GPU and let you know within the first 15 seconds. Instead of erroring out, it will print out the issue and resolution steps, while NOT installing RAPIDS, as to not waste your time on something that won't work.
+    Just remember that the RAPIDS-Colab install script will check if you have a RAPIDS compatible GPU and let you know within the first 15 seconds. Instead of erroring out, it will print out the issue and resolution steps, while NOT installing RAPIDS, as to not waste your time on something that won't work.
 
-```python
-!nvidia-smi
-import torch
-torch.cuda.is_available()
-```
-- Final check
-```python
->>> import cudf, itertools
->>> print('We will use RAPIDS version',cudf.__version__)
-We will use RAPIDS version 22.12.0
-```
+    ```python
+    !nvidia-smi
+    import torch
+    torch.cuda.is_available()
+    ```
+    - Final check
+    ```python
+    >>> import cudf, itertools
+    >>> print('We will use RAPIDS version',cudf.__version__)
+    We will use RAPIDS version 22.12.0
+    ```
 
-### 1.2 cudf + WSL2 (windows)
-- [RAPIDS.ai documentation](https://rapids.ai/wsl2.html)
-- [NVIDIA documentation](https://developer.nvidia.com/blog/run-rapids-on-microsoft-windows-10-using-wsl-2-the-windows-subsystem-for-linux/)
+    ### 1.2 cudf + WSL2 (windows)
+    - [RAPIDS.ai documentation](https://rapids.ai/wsl2.html)
+    - [NVIDIA documentation](https://developer.nvidia.com/blog/run-rapids-on-microsoft-windows-10-using-wsl-2-the-windows-subsystem-for-linux/)
 
-<br><br>
+    <br><br>
+
 
 ### 2. jsonl to parquet function
 - 본 프로젝트의 train 데이터 셋의 경우, 10GB가 넘으므로 chunk_size를 통해서 분할 저장하여, concat 하는 등의 별도 전처리가 필요하며, cudf 사용을 위해 parquet 포맷으로 변경하는 것을 추천합니다.
-```python
-#pip install pyarrow
-#pip install fastparquet
-import pandas as pd
-def jsonl_to_parquet(input_jsonl_fpath:str, save_parquet_dpath: str, chunk_size: int) -> pd.core.frame.DataFrame:
-    '''
-    jsonl_to_parquet('../data/otto-recommender-system\\test.jsonl', '.')                # for small size jsonl file
-    jsonl_to_parquet('../data/otto-recommender-system\\train.jsonl', '.', 100000)       # for large size jsonl file
-    '''
-    if chunk_size == None:
-        chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True)
-        df = pd.DataFrame(chunks)
-        try:
-            df.to_parquet(f'{save_parquet_dpath}/result.parquet')
-        except Exception as e:
-            print(f'Error occurs: {e}')
-    elif chunk_size != None:
-        assert type(chunk_size) == int, "type of chunk_size should be integer"
-        chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True, chunksize=chunk_size)
-        for i, c in enumerate(chunks):
-            temp_df = pd.DataFrame(c)
+
+    ```python
+    #pip install pyarrow
+    #pip install fastparquet
+    import pandas as pd
+    def jsonl_to_parquet(input_jsonl_fpath:str, save_parquet_dpath: str, chunk_size: int) -> pd.core.frame.DataFrame:
+        '''
+        jsonl_to_parquet('../data/otto-recommender-system\\test.jsonl', '.')                # for small size jsonl file
+        jsonl_to_parquet('../data/otto-recommender-system\\train.jsonl', '.', 100000)       # for large size jsonl file
+        '''
+        if chunk_size == None:
+            chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True)
+            df = pd.DataFrame(chunks)
             try:
-                temp_df.to_parquet(f'{save_parquet_dpath}/result{i}.parquet') 
+                df.to_parquet(f'{save_parquet_dpath}/result.parquet')
             except Exception as e:
-                print(f'Error occurs: {e}')   
-```
+                print(f'Error occurs: {e}')
+        elif chunk_size != None:
+            assert type(chunk_size) == int, "type of chunk_size should be integer"
+            chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True, chunksize=chunk_size)
+            for i, c in enumerate(chunks):
+                temp_df = pd.DataFrame(c)
+                try:
+                    temp_df.to_parquet(f'{save_parquet_dpath}/result{i}.parquet') 
+                except Exception as e:
+                    print(f'Error occurs: {e}')   
+    ```
 
 - Data loader reference
 
-```python
-%%time
-# CACHE FUNCTIONS
-def read_file(f):
-    return cudf.DataFrame(data_cache[f])
-def read_file_to_cache(f):
-    df = pd.read_parquet(f)
-    df.ts = (df.ts/1000).astype('int32')
-    df['type'] = df['type'].map(type_labels).astype('int8')
-    return df
+    ```python
+    %%time
+    # CACHE FUNCTIONS
+    def read_file(f):
+        return cudf.DataFrame(data_cache[f])
+    def read_file_to_cache(f):
+        df = pd.read_parquet(f)
+        df.ts = (df.ts/1000).astype('int32')
+        df['type'] = df['type'].map(type_labels).astype('int8')
+        return df
 
-# CACHE THE DATA ON CPU BEFORE PROCESSING ON GPU
-data_cache = {}
-type_labels = {'clicks':0, 'carts':1, 'orders':2}
-files = glob.glob('../input/otto-chunk-data-inparquet-format/*_parquet/*') #parquet format path
-for f in files: data_cache[f] = read_file_to_cache(f)
+    # CACHE THE DATA ON CPU BEFORE PROCESSING ON GPU
+    data_cache = {}
+    type_labels = {'clicks':0, 'carts':1, 'orders':2}
+    files = glob.glob('../input/otto-chunk-data-inparquet-format/*_parquet/*') #parquet format path
+    for f in files: data_cache[f] = read_file_to_cache(f)
 
-# CHUNK PARAMETERS
-READ_CT = 5
-CHUNK = int( np.ceil( len(files)/6 ))
-print(f'We will process {len(files)} files, in groups of {READ_CT} and chunks of {CHUNK}.')  
-```
-
-
+    # CHUNK PARAMETERS
+    READ_CT = 5
+    CHUNK = int( np.ceil( len(files)/6 ))
+    print(f'We will process {len(files)} files, in groups of {READ_CT} and chunks of {CHUNK}.')  
+    ```
 
 <br>
 <br>
@@ -235,9 +237,9 @@ print(f'We will process {len(files)} files, in groups of {READ_CT} and chunks of
 ### Daily Commit Summary <br>
 |Date|Description|
 |:---:|:---|
-|23.01.26|- 데이터 셋업 및 태스크 확인 <br> - Multi Object에 대한 레퍼런스 확인|
+|23.01.26|- 데이터 셋업 및 태스크 확인 <br> - Multi Object에 대한 레퍼런스 확인
 |23.01.27|- 간단한 ML 모델 학습 진행 <br> - 대용량 데이터 전처리 시작|
 |23.01.29|- 휴식, 간단한 ML 모델 결과 확인|
-|23.01.30|- 대용량 데이터 처리 파이프라인 정리 with [Apache parquet](https://parquet.apache.org/) <br> - Co-Visitation, Co-Ranking Study + GPU 파이프라인 구현 <br> - 추가 개선 알고리즘 서치 및 논문 서치(Hidden Markov Models, Graph Neural Networks) |
+|23.01.30|- 대용량 데이터 처리 파이프라인 정리 with [Apache parquet](https://parquet.apache.org/) <br> - Co-Visitation, Co-Ranking Study + GPU 파이프라인 구현 <br> - 추가 개선 알고리즘 서치 및 논문 서치(Hidden Markov Models, Graph Neural Networks) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 <br><br>
