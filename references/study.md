@@ -11,16 +11,15 @@ Code will be open after data de-identification and refactoring.
 <br>
 
 # References Study
-## About Co-visitation Metric
-
-### **[1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems** <br>
+### About Co-visitation Metric
+### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
 <!--![alt text](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg?raw=true)-->
 *Z. Yang, Q. Sun, Y. Zhang, L. Zhu and W. Ji, "Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems," in IEEE Transactions on Information Forensics and Security, vol. 15, pp. 2766-2781, 2020, doi: 10.1109/TIFS.2020.2977023.*
 <img src="../imgs/img1.jpg" width="600">
 <br>
 <br>
 
-### **[2] Co-visitation network in tourism-driven peri-urban area based on social media analytics: A case study in Shenzhen, China**
+### [2] Co-visitation network in tourism-driven peri-urban area based on social media analytics: A case study in Shenzhen, China
 *Yao Sun, Yiwen Shao, Edwin H.W. Chan,
 Co-visitation network in tourism-driven peri-urban area based on social media analytics: A case study in Shenzhen, China,
 Landscape and Urban Planning,
