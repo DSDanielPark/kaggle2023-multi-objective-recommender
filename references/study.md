@@ -40,7 +40,7 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 
 ## Useful Sources
 
-|No|Description|URL|
+|No|Description|Link|
 |:---:|:---|:---|
 |1| Python scikit for recommender systems | [Surprise](https://surprise.readthedocs.io/en/stable/index.html)|
 |2| Python tensorflow for recommender systems | [TensorFlow Recommenders](https://github.com/tensorflow/recommenders)|
