@@ -8,16 +8,49 @@
 <br>
 Code will be open after data de-identification and refactoring.
 <br>
+<br>
 
+## References Study
+<Br>
 
-## Study
-
-### About Co-visitation Metric
-
-#### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
+### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
+*Z. Yang, Q. Sun, Y. Zhang, L. Zhu and W. Ji, "Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems," in IEEE Transactions on Information Forensics and Security, vol. 15, pp. 2766-2781, 2020, doi: 10.1109/TIFS.2020.2977023.*
+<br>
 <!--![alt text](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg?raw=true)-->
 
 <img src="../imgs/img1.jpg" width="600">
 <br>
-*Z. Yang, Q. Sun, Y. Zhang, L. Zhu and W. Ji, "Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems," in IEEE Transactions on Information Forensics and Security, vol. 15, pp. 2766-2781, 2020, doi: 10.1109/TIFS.2020.2977023.*
 
+
+<br>
+<br>
+
+## Useful Library or Sources
+|No|Description|URL|
+|:---:|:---|:---|
+|1| Python scikit for recommender systems | [Surprise](https://surprise.readthedocs.io/en/stable/index.html)|
+|2| Python tensorflow for recommender systems | [TensorFlow Recommenders](https://github.com/tensorflow/recommenders)|
+|3| A python library of evalulation metrics and diagnostic tools for recommender systems. | [Ricmetric](https://github.com/statisticianinstilettos/recmetrics) |
+|4| cuDF - GPU DataFrames | [cuDF](https://github.com/rapidsai/cudf) |
+
+<br>
+<br>
+
+
+## Tips [Optional]
+<br>
+
+### Use conda in GoogleColab
+```
+    !nvidia-smi                          # check runtype
+    !conda --version                     # check if you can use conda in kernel
+/bin/bash: conda: command not found
+    !pip install -q condacolab           # install conda colab
+    import condacolab
+    condacolab.install()
+```
+Install cudf
+```
+!conda install -c rapidsai -c conda-forge -c nvidia \
+    cudf=22.10 python=3.9 cudatoolkit=11.5
+```
