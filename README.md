@@ -23,13 +23,13 @@ Code will be open after data de-identification and refactoring.
   - 구체적인 태스크는 aid 세션이 잘린 뒤에 나올 다음 클릭과 및 장바구니에 추가될 나머지 항목을 예측하는 것이며, 각 세션별로 최대 20개의 값을 예측할 수 있음.
 
 ```
-- train.jsonl - train용 전체 세션 데이터
+- train.jsonl - 전체 시퀀스의 train set (10.5GB)
   - session- 고유한 세션 ID
   - events- 세션에서 발생한 이벤트의 시계열 데이터
     - aid- 관련 이벤트 품목 ID(제품 코드)
     - ts-  이벤트 타임스탬프
-    - type- 이벤트 유형, 즉 제품이 클릭되었는지, 사용자의 장바구니에 추가되었는지 또는 세션동안 주문되었는지 여부
-- test.jsonl - 세션의 잘린부분을 포함하는 테스트 데이터
+    - type- 3가지 이벤트 유형(click, add to carts, order)
+- test.jsonl - 시퀀스 일부가 잘린 test set (383MB)
 ```
 
 - **EDA:**
@@ -82,7 +82,6 @@ Code will be open after data de-identification and refactoring.
 
 
 # References
-- You can see whole reference study at [study.md](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/references/study.md)
 ### About Co-visitation Metric
 ### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
 <!--![alt text](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg?raw=true)-->
@@ -117,7 +116,7 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 |4| cuDF - GPU DataFrames | [cuDF](https://github.com/rapidsai/cudf) |
 |5| Stellar Graph Demos| [StellarGraph demos](https://stellargraph.readthedocs.io/en/stable/demos/index.html)|
 |6| Conda Colab | [Conda Colab](https://github.com/conda-incubator/condacolab)
-
+|7| NetworkX | [Documentation](https://networkx.org/documentation/stable/index.html)
 
 <br>
 <br>
@@ -125,40 +124,39 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 
 # Tips [Optional]
 
-## 1 About using CUDF
+### 1 About using CUDF
 - Competition data size is so huge that I need to use gpu acceleration on preprocessing. This is 30x faster than using Pandas CPU
 - cudf library supports only Linux OS. Cause I could't use linux server, I install 
 cudf in Google Colab.
 - Check rapidsai-community example on [here.](https://github.com/rapidsai-community/showcase/blob/main/getting_started_tutorials/10min_to_cudf_colab.ipynb?nvid=nv-int-tblg-386840-vt27#cid=av02_nv-int-tblg_en-us)
 
-### 
 ```
 !pip install cudf-cu11 --extra-index-url=https://pypi.ngc.nvidia.com
 ```
 
-### 1.1 Use conda in GoogleColab
-```
-    !nvidia-smi                          # check type of runtime
-    !conda --version                     # check if you can use conda in kernel
+#### 1.1 Use conda in GoogleColab
+```python
+>>> !nvidia-smi                          # check type of runtime
+>>> !conda --version                     # check if you can use conda in kernel
 /bin/bash: conda: command not found
 
-    !pip install -q condacolab           # install conda colab
-    import condacolab
-    condacolab.install()
-    import condacolab
-    condacolab.check()
+>>> !pip install -q condacolab           # install conda colab
+>>> import condacolab
+>>> condacolab.install()
+>>> import condacolab
+>>> condacolab.check()
 ✨🍰✨ Everything looks OK!
 
 ```
 
-### 1.2 Install cudf
+#### 1.2 Install cudf
 
 ```
 !conda install -c rapidsai -c conda-forge -c nvidia \
     cudf=22.10 python=3.9 cudatoolkit=11.5
 ```
 
-### 1.3 Inspite of sucessful installation, you may can see error message in importing cudf library. Change type of runtime until you can find some server that can have RAPIDS compatible GPU. 
+#### 1.3 Inspite of sucessful installation, you may can see error message in importing cudf library. Change type of runtime until you can find some server that can have RAPIDS compatible GPU. 
 
 ```
 ModuleNotFoundError: No module named 'cudf'
@@ -166,6 +164,38 @@ ModuleNotFoundError: No module named 'cudf'
 => There wasn't a RAPIDS compatible GPU connected to the Colab instance.
 
 Just remember that the RAPIDS-Colab install script will check if you have a RAPIDS compatible GPU and let you know within the first 15 seconds. Instead of erroring out, it will print out the issue and resolution steps, while NOT installing RAPIDS, as to not waste your time on something that won't work.
+
+<br><br>
+
+### 2. jsonl to parquet function
+- 본 프로젝트의 train 데이터 셋의 경우, 10GB가 넘으므로 chunk_size를 통해서 분할 저장하여, concat 하는 등의 별도 전처리가 필요하며, cudf 사용을 위해 parquet 포맷으로 변경하는 것을 추천합니다.
+```python
+#pip install pyarrow
+#pip install fastparquet
+import pandas as pd
+import pandas as pd
+def jsonl_to_parquet(input_jsonl_fpath:str, save_parquet_dpath: str, chunk_size: int) -> pd.core.frame.DataFrame:
+    '''
+    jsonl_to_parquet('../data/otto-recommender-system\\test.jsonl', '.')                # for small size jsonl file
+    jsonl_to_parquet('../data/otto-recommender-system\\train.jsonl', '.', 100000)       # for large size jsonl file
+    '''
+    if chunk_size == None:
+        chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True)
+        df = pd.DataFrame(chunks)
+        try:
+            df.to_parquet(f'{save_parquet_dpath}/result.parquet')
+        except Exception as e:
+            print(f'Error occurs: {e}')
+    elif chunk_size != None:
+        assert type(chunk_size) == int, "type of chunk_size should be integer"
+        chunks = pd.read_json(path_or_buf=input_jsonl_fpath, lines=True, chunksize=chunk_size)
+        for i, c in enumerate(chunks):
+            temp_df = pd.DataFrame(c)
+            try:
+                temp_df.to_parquet(f'{save_parquet_dpath}/result{i}.parquet') 
+            except Exception as e:
+                print(f'Error occurs: {e}')    
+```
 
 <br>
 <br>
@@ -176,5 +206,6 @@ Just remember that the RAPIDS-Colab install script will check if you have a RAPI
 |23.01.26|- 데이터 셋업 및 태스크 확인 <br> - Multi Object에 대한 레퍼런스 확인|
 |23.01.27|- 간단한 ML 모델 학습 진행 <br> - 대용량 데이터 전처리 시작|
 |23.01.29|- 휴식, 간단한 ML 모델 결과 확인|
+|23.01.30|- 대용량 데이터 처리 <br> - Co-Visitation, Co-Ranking Study |
 
 <br><br>
