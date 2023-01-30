@@ -100,6 +100,7 @@ Just remember that the RAPIDS-Colab install script will check if you have a RAPI
 <br><br>
 
 ## 2. jsonl to parquet function
+- 본 프로젝트의 train 데이터 셋의 경우, 10GB가 넘으므로 chunk_size를 통해서 분할 저장하여, concat 하는 등의 별도 전처리가 필요하며, cudf 사용을 위해 parquet 포맷으로 변경하는 것을 추천합니다.
 ```python
 #pip install pyarrow
 #pip install fastparquet
@@ -125,8 +126,5 @@ def jsonl_to_parquet(input_jsonl_fpath:str, save_parquet_dpath: str, chunk_size:
             try:
                 temp_df.to_parquet(f'{save_parquet_dpath}/result{i}.parquet') 
             except Exception as e:
-                print(f'Error occurs: {e}')
-        
-    
-        
+                print(f'Error occurs: {e}')    
 ```
