@@ -12,7 +12,7 @@ Code will be open after data de-identification and refactoring.
 
 ## Study
 
-### About Co-visitation Metric
+### About Co-visitation Matrix
 
 #### [1] Inference of Suspicious Co-Visitation and Co-Rating Behaviors and Abnormality Forensics for Recommender Systems <br>
 <!--![alt text](https://github.com/DSDanielPark/kaggle2023-multi-objective-recommender/blob/main/imgs/img1.jpg?raw=true)-->
