@@ -9,6 +9,8 @@
 Code will be open after data de-identification and refactoring.
 <br>
 
+[](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif)
+
 ## Remark
 - Quick Competition challenges.
 <br>
