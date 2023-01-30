@@ -115,7 +115,7 @@ https://doi.org/10.1016/j.landurbplan.2020.103934.* <br>
 
 ## Tips [Optional]
 
-### 1 About using CUDF
+### 1 About using CUDF 
 - Competition data size is so huge that I need to use gpu acceleration on preprocessing. This is 30x faster than using Pandas CPU
 - cudf library supports only Linux OS. Cause I could't use linux server, I install 
 cudf in Google Colab.
@@ -125,7 +125,7 @@ cudf in Google Colab.
 !pip install cudf-cu11 --extra-index-url=https://pypi.ngc.nvidia.com
 ```
 
-#### 1.1 Use conda in GoogleColab
+### 1.1 Use conda in GoogleColab
 ```python
 >>> !nvidia-smi                          # check type of runtime
 >>> !conda --version                     # check if you can use conda in kernel
@@ -139,14 +139,14 @@ cudf in Google Colab.
 
 ```
 
-#### 1.2 Install cudf
+#### Install cudf
 
 ```
 !conda install -c rapidsai -c conda-forge -c nvidia \
     cudf=22.10 python=3.9 cudatoolkit=11.5
 ```
 
-#### 1.3 Inspite of sucessful installation, you may can see error message in importing cudf library. Change type of runtime until you can find some server that can have RAPIDS compatible GPU. 
+#### Inspite of sucessful installation, you may can see error message in importing cudf library. Change type of runtime until you can find some server that can have RAPIDS compatible GPU. 
 
 ```
 ModuleNotFoundError: No module named 'cudf'
@@ -167,7 +167,7 @@ torch.cuda.is_available()
 We will use RAPIDS version 22.12.0
 ```
 
-#### 1.4 cudf with WSL2 (windows)
+### 1.2 cudf + WSL2 (windows)
 - [RAPIDS.ai documentation](https://rapids.ai/wsl2.html)
 - [NVIDIA documentation](https://developer.nvidia.com/blog/run-rapids-on-microsoft-windows-10-using-wsl-2-the-windows-subsystem-for-linux/)
 
