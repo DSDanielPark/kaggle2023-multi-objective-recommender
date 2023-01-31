@@ -1,4 +1,4 @@
-# kaggle2023-multi-objective-recommender
+# kaggle2023-multi-objective-recommender(public)
 - TASK: Multi-category classifiers(8classes in news dataset) 전자 상거래 로그 기반(클릭, 장바구니 추가, 주문) 예측 모델링
 - Dataset: 독일 전자상거래 플랫폼 OTTO 로그 data set (ID별 품목 클릭, 장바구니 추가, 구입 시계열 로그) <br>
 - Evaluation:  Recall@20 for each action type, and the three recall values are weight-averaged <br>
