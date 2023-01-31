@@ -241,5 +241,6 @@ cudf in Google Colab.
 |23.01.27|- 간단한 ML 모델 학습 진행 <br> - 대용량 데이터 전처리 시작|
 |23.01.29|- 휴식, 간단한 ML 모델 결과 확인|
 |23.01.30|- 대용량 데이터 처리 파이프라인 정리 with [Apache parquet](https://parquet.apache.org/) <br> - Co-Visitation, Co-Ranking Study + GPU 파이프라인 구현 <br> - 추가 개선 알고리즘 서치 및 논문 서치(Hidden Markov Models, Graph Neural Networks) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|23.01.31|- 제출 이후 코드 정리
 
 <br><br>
