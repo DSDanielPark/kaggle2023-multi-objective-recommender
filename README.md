@@ -173,7 +173,7 @@ cudf in Google Colab.
     - [RAPIDS.ai documentation](https://rapids.ai/wsl2.html)
     - [NVIDIA documentation](https://developer.nvidia.com/blog/run-rapids-on-microsoft-windows-10-using-wsl-2-the-windows-subsystem-for-linux/)
 
-    <br><br>
+    <br>
 
 
 ### 2. jsonl to parquet function
